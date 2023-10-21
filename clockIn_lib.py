@@ -241,7 +241,7 @@ class clockIn():
         self.driver.quit()
         exit(0)
 
-    def _lib_seat(self, cookie, tomorrow, startTime, endTime):
+    def reserve_lib_seat(self, cookie, tomorrow, startTime, endTime):
         url = "http://libbooking.gzhu.edu.cn/ic-web/reserve"
 
         payload = json.dumps({
