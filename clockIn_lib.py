@@ -201,8 +201,9 @@ class clockIn():
 
         # 计算明天的日期，yyyy-MM-dd
         tomorrow = datetime.date.today() + datetime.timedelta(days=1)
-        tomorrow = tomorrow.strftime('%Y-%m-%d')
         weekday = tomorrow.weekday()
+        tomorrow = tomorrow.strftime('%Y-%m-%d')
+
 
         if weekday in [0,1]
             reserve1 = json.loads(self.reserve_lib_seat(cookie, tomoroow, '18:30:00', '21:30:00'))
