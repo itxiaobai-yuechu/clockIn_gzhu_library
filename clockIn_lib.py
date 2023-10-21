@@ -211,7 +211,7 @@ class clockIn():
             message = f'''{tomorrow} 座位101-{self.SEATNO}，晚上预定：{'预约成功' if reserve1.get('code') == 0 else '预约失败，设备在该时间段内已被预约'}
             '''
         else if weekday in [2,3]
-            reserve1 = json.loads(self.reserve_lib_seat(cookie, tomorrow, '8:30:00', '12:00:00'))
+            reserve1 = json.loads(self.reserve_lib_seat(cookie, tomorrow, '8:40:00', '12:00:00'))
             reserve2 = json.loads(self.reserve_lib_seat(cookie, tomoroow, '18:30:00', '21:30:00'))
             logger.info(reserve1)
             logger.info(reserve2)
