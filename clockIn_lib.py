@@ -210,7 +210,7 @@ class clockIn():
             logger.info(reserve1)
             message = f'''{tomorrow} 座位101-{self.SEATNO}，晚上预定：{'预约成功' if reserve1.get('code') == 0 else '预约失败，设备在该时间段内已被预约'}
             '''
-        else if weekday in [2,3]:
+        elif weekday in [2,3]:
             reserve1 = json.loads(self.reserve_lib_seat(cookie, tomorrow, '8:40:00', '12:00:00'))
             reserve2 = json.loads(self.reserve_lib_seat(cookie, tomoroow, '18:30:00', '21:30:00'))
             logger.info(reserve1)
@@ -218,7 +218,7 @@ class clockIn():
             message = f'''{tomorrow} 座位101-{self.SEATNO}，上午预定：{'预约成功' if reserve1.get('code') == 0 else '预约失败，设备在该时间段内已被预约'}
                 {tomorrow} 座位101-{self.SEATNO}，晚上预定：{'预约成功' if reserve2.get('code') == 0 else '预约失败，设备在该时间段内已被预约'}
             '''
-        else if weekday in [4,5,6]:
+        elif weekday in [4,5,6]:
             # 将下面的值转换成json格式
             reserve1 = json.loads(self.reserve_lib_seat(cookie, tomorrow, '9:00:00', '12:00:00'))
             reserve2 = json.loads(self.reserve_lib_seat(cookie, tomorrow, '14:00:00', '17:00:00'))
