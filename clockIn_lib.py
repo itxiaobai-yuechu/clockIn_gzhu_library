@@ -179,10 +179,9 @@ class clockIn():
     def step3(self):
         logger.info('step3 准备进行图书馆预定座位操作')
         logger.info('标题: ' + self.driver.title)
-        
-        '''
+    
         cookie = self.get_cookie()
-
+        '''
         if cookie == '':
             logger.info('没找到cookie')
 
