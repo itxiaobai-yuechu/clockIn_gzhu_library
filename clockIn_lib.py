@@ -182,7 +182,7 @@ class clockIn():
     def step3(self):
         logger.info('step3 准备进行图书馆预定座位操作')
         logger.info('标题: ' + self.driver.title)
-    
+
         cookie = self.get_cookie()
         '''
         if cookie == '':
@@ -281,7 +281,7 @@ class clockIn():
 
     def get_cookie(self):
         # 获取Cookie字符串
-
+        '''
         ans = self.driver.get_cookies()
         logger.info('cookies' + str(ans))
 
@@ -291,6 +291,8 @@ class clockIn():
             return ans[0].get('name') + "=" + ans[0].get('value')
 
         return ''
+        '''
+        return 'ic-cookie=c0e2c690-2004-47e5-b594-be4e33c30cad'
 
     def notify(self, content):
         """图书馆预约信息
