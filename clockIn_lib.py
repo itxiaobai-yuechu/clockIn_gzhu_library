@@ -184,7 +184,7 @@ class clockIn():
         logger.info('标题: ' + self.driver.title)
 
         cookie = self.get_cookie()
-        '''
+        
         if cookie == '':
             logger.info('没找到cookie')
 
@@ -201,7 +201,7 @@ class clockIn():
             return
         
         logger.info('primary cookie: ' + cookie)
-        '''
+        
         # 计算明天的日期，yyyy-MM-dd
         tomorrow = datetime.date.today() + datetime.timedelta(days=1)
         weekday = tomorrow.weekday()
@@ -212,7 +212,6 @@ class clockIn():
             reserve1 = json.loads(self.reserve_lib_seat(cookie, tomorrow, '18:30:00', '21:30:00'))
             logger.info(reserve1)
             message = f'''{tomorrow} 座位101-{self.SEATNO}，晚上预定：{'预约成功' if reserve1.get('code') == 0 else '预约失败，设备在该时间段内已被预约'}
-            '''
         elif weekday in [2,3]:
             reserve1 = json.loads(self.reserve_lib_seat(cookie, tomorrow, '8:40:00', '12:00:00'))
             reserve2 = json.loads(self.reserve_lib_seat(cookie, tomorrow, '18:30:00', '21:30:00'))
@@ -220,9 +219,7 @@ class clockIn():
             logger.info(reserve2)
             message = f'''{tomorrow} 座位101-{self.SEATNO}，上午预定：{'预约成功' if reserve1.get('code') == 0 else '预约失败，设备在该时间段内已被预约'}
                 {tomorrow} 座位101-{self.SEATNO}，晚上预定：{'预约成功' if reserve2.get('code') == 0 else '预约失败，设备在该时间段内已被预约'}
-            '''
         elif weekday in [4,5,6]:
-            # 将下面的值转换成json格式
             reserve1 = json.loads(self.reserve_lib_seat(cookie, tomorrow, '9:00:00', '12:00:00'))
             reserve2 = json.loads(self.reserve_lib_seat(cookie, tomorrow, '14:00:00', '17:00:00'))
             reserve3 = json.loads(self.reserve_lib_seat(cookie, tomorrow, '18:30:00', '21:30:00'))
@@ -232,8 +229,7 @@ class clockIn():
             message = f'''{tomorrow} 座位101-{self.SEATNO}，上午预定：{'预约成功' if reserve1.get('code') == 0 else '预约失败，设备在该时间段内已被预约'}
                 {tomorrow} 座位101-{self.SEATNO}，下午预定：{'预约成功' if reserve2.get('code') == 0 else '预约失败，设备在该时间段内已被预约'}
                 {tomorrow} 座位101-{self.SEATNO}，晚上预定：{'预约成功' if reserve3.get('code') == 0 else '预约失败，设备在该时间段内已被预约'}
-            '''
-
+            
         logger.info(message)
 
         # 发送消息
