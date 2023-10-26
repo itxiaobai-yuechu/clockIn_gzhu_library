@@ -179,7 +179,8 @@ class clockIn():
     def step3(self):
         logger.info('step3 准备进行图书馆预定座位操作')
         logger.info('标题: ' + self.driver.title)
-
+        
+        '''
         cookie = self.get_cookie()
 
         if cookie == '':
@@ -196,9 +197,9 @@ class clockIn():
 
             self.step3()
             return
-
+        
         logger.info('primary cookie: ' + cookie)
-
+        '''
         # 计算明天的日期，yyyy-MM-dd
         tomorrow = datetime.date.today() + datetime.timedelta(days=1)
         weekday = tomorrow.weekday()
