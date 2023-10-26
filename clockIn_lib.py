@@ -281,8 +281,8 @@ class clockIn():
 
     def get_cookie(self):
         # 获取Cookie字符串
-        '''
-        ans = self.driver.get_cookies()
+
+        ans = self.driver.manage().getCookies();
         logger.info('cookies' + str(ans))
 
         if len(ans) != 0:
@@ -291,9 +291,7 @@ class clockIn():
             return ans[0].get('name') + "=" + ans[0].get('value')
 
         return ''
-        '''
-        return 'ic-cookie=c0e2c690-2004-47e5-b594-be4e33c30cad'
-
+        
     def notify(self, content):
         """图书馆预约信息
         """
