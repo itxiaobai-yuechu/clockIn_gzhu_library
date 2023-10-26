@@ -282,7 +282,7 @@ class clockIn():
     def get_cookie(self):
         # 获取Cookie字符串
 
-        ans = self.driver.manage().getCookies();
+        ans = self.driver.get_cookies();
         logger.info('cookies' + str(ans))
 
         if len(ans) != 0:
