@@ -123,8 +123,10 @@ class clockIn():
             # 说明验证通过，直接进入了界面
             return self.step3()
 
+        time.sleep(1)
         logger.info('标题1: ' + self.driver.title)
-
+        
+        '''
         # 计算时间
 
         start = datetime.datetime.now()
@@ -144,11 +146,12 @@ class clockIn():
 
         end = datetime.datetime.now()
         logger.info('等待时间: ' + str((end - start).seconds))
-
+        
 
 
         logger.info('标题2: ' + self.driver.title)
-
+        '''
+        
     def step1(self):
         """登录融合门户
         """
